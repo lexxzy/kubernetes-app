@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vrpodb
+  name: vprodb
   labels:
-    app: vrpodb
+    app: vprodb
 spec:
   selector:
     matchLabels:
-      app: vrpodb
+      app: vprodb
   replicas: 1
   template:
     metadata:
       labels:
-        app: vrpodb
+        app: vprodb
     spec:
       containers:
       - name: vprodb
