@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
        - name: vproapp
-         image: lexxzy/vprofileapp:
+         image: lexxzy/vprofileapp
          ports:
          - containerPort: 8080
            name: vproapp-port
