@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vrpodb
-  labels: 
+  labels:
     app: vrpodb
 spec:
   selector:
@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       labels:
-        app: vprodb
+        app: vrpodb
     spec:
       containers:
       - name: vprodb
@@ -26,19 +26,19 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 3306
-        env: 
+        env:
           - name: MYSQL_ROOT_PASSWORD
-            valueFrom: 
+            valueFrom:
               secretKeyRef:
                 name: app-secret
                 key: db-pass
       nodeSelector:
         zone: us-east-2b
-      volume: 
+      volumes:
         - name: vpro-db-data
           awsElasticBlockStore:
             volumeID: vol-035ea7ffad8ab8e09
-            fsType: ext64
+            fsType: ext4
       initContainers:
         - name: busybox
           image: busybox:latest
